@@ -36,16 +36,19 @@ def make_overflow(src1, src2, mod):
 #############data generate###################
 
 def alu_data_gen():
-    data_num = 8
-    src1 = np.arange(0, 8, dtype=np.int) 
-    src2 = np.arange(8, 16, dtype=np.int) 
+    data_num = 100
+    # src1 = np.arange(0, 8, dtype=np.int) 
+    # src2 = np.arange(8, 16, dtype=np.int) 
+    # mod = np.arange(0, 8, dtype=np.int) 
 
-    # src1 = rd.randint(0, 256, data_num, dtype=np.uint8)
-    # src2 = rd.randint(0, 256, data_num, dtype=np.uint8)
+
+    src1 = rd.randint(0, 256, data_num, dtype=np.uint8)
+    src2 = rd.randint(0, 256, data_num, dtype=np.uint8)
+    mod = rd.randint(0, 8, data_num, dtype=np.uint8)
 
     # src1 = np.ones(data_num, dtype=np.int) * 4
     # src2 = np.ones(data_num, dtype=np.int) * 4
-    mod = np.arange(0, 8, dtype=np.int) 
+    # mod = np.arange(0, 8, dtype=np.int) 
 
     # print(src1)
 

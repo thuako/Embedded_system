@@ -23,7 +23,7 @@ def int_to_binary_concatenate( arr, m):
     # args is consist of nd.array
     if isinstance(arr[0],np.ndarray):
         # numpy array convert to string by using vectorize func
-        to_str_func = np.vectorize(lambda x: np.binary_repr(x, m).replace('-', ''))
+        to_str_func = np.vectorize(lambda x: ((np.binary_repr(x, m)[::-1])[:m])[::-1])
         for i in range(len(arr)):
             arr[i] = to_str_func(arr[i]) 
 
