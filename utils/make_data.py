@@ -1,14 +1,14 @@
 import numpy as np
 
-def int_to_binary_concatenate( arr, m):
+def int_to_binary_concatenate( arr, m=1):
     '''
     Arguments
     arr : nd.array must be in the list
     m : bit width
 
     convert nd.array to binary string
-    both two dimension and one dimension are compatable.
-    and string which concateted by list is also compatable.
+    both two dimension and one dimension are compatable for this function.
+    and string which in list is also compatable.
     ex) 
 
     a = np.array([1,2,2,1,3,1]).reshape(-1, 2) to 
@@ -44,20 +44,29 @@ def int_to_binary_concatenate( arr, m):
             result_list.append(one_line)
     return result_list
 
-def write_txt_file(file_name, *args):
+def write_testvector(file_name, *args):
     # file write
     text_file = open( file_name , mode='wt', encoding='utf-8')
+    write_binary(text_file, *args)
+    text_file.close()
 
+
+def write_bram(file_name, *args):
+    file = open( file_name , mode='wt', encoding='utf-8')
+    msg = 'memory_initialization_radix=2;\nmemory_initialization_vector=\n'
+    file.write(msg)
+    write_binary(file, *args)
+    file.close()
+
+
+def write_binary(file_stream, *args):
     check_num = 0 # to print testvector bit width
     for data_row in range(len(args[0])):
         one_line = ''
         for num_arg in range(len(args)):
             one_line += args[num_arg][data_row]
-        text_file.write(one_line + '\n')
+        file_stream.write(one_line + '\n')
 
         if(check_num == 0):
-            print(f'the number of the testvector width is {len(one_line)}')
+            print(f'the number of the data width is {len(one_line)}')
             check_num = 1
-    text_file.close()
-
-
