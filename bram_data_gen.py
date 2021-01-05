@@ -74,8 +74,8 @@ def systolic_1_1_2bit_gen():
 
 def systolic_1_1_v4_gen():
     # depth is 8
-    act = np.arange(0, 8, dtype=np.int)
-    weight = np.arange(0, 8, dtype=np.int)
+    act = np.arange(0, 16, dtype=np.int)
+    weight = np.arange(0, 4, dtype=np.int)
     pre_sum = np.zeros((8, 1), dtype=np.int)
 
     act_list = []
@@ -107,10 +107,10 @@ def systolic_1_1_v4_gen():
 def systolic_1_1_v4_gen_show_result(act = None, weight = None, size= None):
     # depth is 8
     if act is None:
-        act = np.arange(0, 8, dtype=np.int)
+        act = np.arange(0, 16, dtype=np.int)
 
     if weight is None:
-        weight = np.arange(0, 8, dtype=np.int)
+        weight = np.arange(0, 7, dtype=np.int)
     pre_sum = np.zeros((8, 1), dtype=np.int)
 
     if size is None:
@@ -146,6 +146,8 @@ weight = np.arange(7, -1, -1)
 act = np.arange(1, 9)
 
 systolic_1_1_v4_gen_show_result(act, weight, 8)
+
+
 
 
 
